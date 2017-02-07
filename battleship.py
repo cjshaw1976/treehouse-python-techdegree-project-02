@@ -40,9 +40,13 @@ while True:
     functions.clear_screen()
     print(message)
 
-    # Break out at end of game
+    # At end of game, Display boards and break out of loop
     if "winner" in message:
+        print(players[1].name + "'s board")
+        players[1].my_ships_board.display()
+        print(players[0].name + "'s board")
+        players[0].my_ships_board.display()
         break
     else:
         input("{}, it is your turn now. Press Enter when you are ready."
-              .format(players[0]))
+              .format(players[1]))

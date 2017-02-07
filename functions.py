@@ -66,13 +66,13 @@ def my_turn(player_turn, player_opposition):
 
     # 13. Display guess results.
     # Default is that you missed
-    message = "Sorry {}, your shot missed.".format(player_turn)
+    message = "Sorry {}, your shot missed.\n".format(player_turn)
     player_turn.my_shots_board.hit_or_miss(postion_tuple, False)
 
     # Now check if it was actually a hit
     for ship in player_opposition.my_fleet:
         if ship.is_hit(postion_tuple):
-            message = "*** HIT ***\n"
+            message = "*** IT'S  A  HIT ***\n"
 
             # Mark the hit on player my_shots and opposition my_ships board
             player_turn.my_shots_board.hit_or_miss(postion_tuple)
@@ -88,7 +88,7 @@ def my_turn(player_turn, player_opposition):
                 # Check if the whole fleet is sunk
                 if check_fleet(player_opposition.my_fleet):
                     message = (message + "All of {}'s ships have been sunk! "
-                               "{} is the winner!"
+                               "{} is the winner!\n"
                                .format(player_opposition, player_turn))
                     break
                 else:
